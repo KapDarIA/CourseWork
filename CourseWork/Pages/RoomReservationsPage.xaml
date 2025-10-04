@@ -19,6 +19,12 @@
                     <Image Source="/Icons/filterIcon.png"/>
                 </Button>
 
+                <Button x:Name="userProfileButton"
+                        Style="{StaticResource DarkBlueAsureButtonStyle}"
+                        Width="32" Margin="5">
+                    <Image Source="/Icons/userProfileIcon.png"/>
+                </Button>
+
                 <Button x:Name="closeProjectButton" Click="CloseProjectButton_Click"
                         Style="{StaticResource DarkBlueAsureButtonStyle}"
                         Width="32" Margin="5">
