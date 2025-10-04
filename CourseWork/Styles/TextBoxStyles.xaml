@@ -1,0 +1,66 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <!--       Цвета       -->
+    <!--
+    #0c1222 - тёмно-синий (dark blue)
+    #1a2d4d - синий (blue)
+    #6b7c90 - серо-голубой (dark azure)
+    #91a8ba - голубой (azure)
+    d4ced8 - серо-розовый (grey pink)-->
+
+    <!-- Стиль тёмно-синий -->
+    <Style x:Key="DarkBlueTextBoxStyle" TargetType="TextBox">
+        <Setter Property="FontSize" Value="16"/>
+        <Setter Property="FontFamily" Value="Comic Sans MS"/>
+        <Setter Property="Background" Value="{x:Null}"/>
+        <Setter Property="Foreground" Value="#0c1222"/>
+        <Setter Property="Margin" Value="5"/>
+        <Setter Property="BorderBrush" Value="#0c1222"/>
+        <Setter Property="BorderThickness" Value="2"/>
+    </Style>
+
+    <!-- Стиль синий -->
+    <Style x:Key="BlueTextBoxStyle" TargetType="TextBox">
+        <Setter Property="FontSize" Value="16"/>
+        <Setter Property="FontFamily" Value="Comic Sans MS"/>
+        <Setter Property="Background" Value="{x:Null}"/>
+        <Setter Property="Foreground" Value="#1a2d4d"/>
+        <Setter Property="Margin" Value="5"/>
+        <Setter Property="BorderBrush" Value="#1a2d4d"/>
+        <Setter Property="BorderThickness" Value="2"/>
+    </Style>
+
+    <!-- Стиль серо-голубой -->
+    <Style x:Key="DarkAzureTextBoxStyle" TargetType="TextBox">
+        <Setter Property="FontSize" Value="16"/>
+        <Setter Property="FontFamily" Value="Comic Sans MS"/>
+        <Setter Property="Background" Value="{x:Null}"/>
+        <Setter Property="Foreground" Value="#6b7c90"/>
+        <Setter Property="Margin" Value="5"/>
+        <Setter Property="BorderBrush" Value="#6b7c90"/>
+        <Setter Property="BorderThickness" Value="2"/>
+
+    </Style>
+
+    <!-- Стиль голубой -->
+    <Style x:Key="AzureTextBoxStyle" TargetType="TextBox">
+        <Setter Property="FontSize" Value="16"/>
+        <Setter Property="FontFamily" Value="Comic Sans MS"/>
+        <Setter Property="Background" Value="{x:Null}"/>
+        <Setter Property="Foreground" Value="#91a8ba"/>
+        <Setter Property="Margin" Value="5"/>
+        <Setter Property="BorderBrush" Value="#91a8ba"/>
+        <Setter Property="BorderThickness" Value="2"/>
+    </Style>
+
+    <!-- Стиль серо-розовый -->
+    <Style x:Key="GreyPinkTextBoxStyle" TargetType="TextBox">
+        <Setter Property="FontSize" Value="16"/>
+        <Setter Property="FontFamily" Value="Comic Sans MS"/>
+        <Setter Property="Background" Value="{x:Null}"/>
+        <Setter Property="Foreground" Value="#d4ced8"/>
+        <Setter Property="Margin" Value="5"/>
+        <Setter Property="BorderBrush" Value="#d4ced8"/>
+        <Setter Property="BorderThickness" Value="2"/>
+    </Style>
+</ResourceDictionary>

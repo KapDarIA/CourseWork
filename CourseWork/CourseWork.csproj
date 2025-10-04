@@ -1,0 +1,26 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Icons\crossAzureIcon.png" />
+    <None Remove="Icons\crossGoldIcon.png" />
+    <None Remove="Icons\filterIcon.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Icons\crossGoldIcon.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Icons\crossAzureIcon.png" />
+    <Resource Include="Icons\filterIcon.png" />
+  </ItemGroup>
+
+</Project>
