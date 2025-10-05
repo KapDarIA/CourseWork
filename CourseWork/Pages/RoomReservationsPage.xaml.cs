@@ -20,6 +20,14 @@ namespace CourseWork.Pages
     /// </summary>
     public partial class RoomReservationsPage : Page
     {
+        // Минимальные и максимальные количества взрослых и детей
+        private const int MinAdults = 1;
+        private const int MaxAdults = 6;
+        private const int MinChildren = 0;
+        private const int MaxChildren = 4;
+        private int currentAdults;
+        private int currentChildren;
+
         public RoomReservationsPage()
         {
             InitializeComponent();
@@ -29,7 +37,18 @@ namespace CourseWork.Pages
             UpdatePlaceholderVisibility();
 
             LoadComboBoxData();
+            AddUserControlToGrid();
+
+            currentAdults = MinAdults;
+            currentChildren = MinChildren;
+            UpdateGuestCountDisplay();
         }
+        private void AddUserControlToGrid()
+        {
+            BookingRoomUserControl userControl = new BookingRoomUserControl(); // Создаем экземпляр UserControl
+            myGrid.Children.Add(userControl); // Добавляем его в контейнер, например, Grid
+        }
+
         private bool IsNumeric(string text)
         {
             foreach (char c in text)
@@ -114,5 +133,75 @@ namespace CourseWork.Pages
         {
 
         }
+
+        //Popup
+        private void GuestCountTextBox_PreviewMouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            // Открываем Popup только при нажатии на TextBox
+            GuestCountPopup.IsOpen = true;
+            e.Handled = true;
+        }
+
+        private void UpdateGuestCountDisplay()
+        {
+            // Обновляем текст в TextBlock для взрослых и детей
+            AdultCountTextBlock.Text = currentAdults.ToString();
+            ChildCountTextBlock.Text = currentChildren.ToString();
+
+            if (currentAdults == 1)
+                GuestCountTextBox.Text = $"{currentAdults} взрослый";
+            else
+                GuestCountTextBox.Text = $"{currentAdults} взрослых";
+
+            if (currentChildren == 1)
+                GuestCountTextBox.Text += $", {currentChildren} ребенок";
+            if (currentChildren > 1)
+                GuestCountTextBox.Text += $", {currentChildren} детей";
+            else
+                GuestCountTextBox.Text += $"";
+        }
+
+        private void DecreaseAdultButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (currentAdults > MinAdults)
+            {
+                currentAdults--;
+                UpdateGuestCountDisplay();
+            }
+        }
+
+        private void IncreaseAdultButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (currentAdults < MaxAdults)
+            {
+                currentAdults++;
+                UpdateGuestCountDisplay();
+            }
+        }
+
+        private void DecreaseChildButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (currentChildren > MinChildren)
+            {
+                currentChildren--;
+                UpdateGuestCountDisplay();
+            }
+        }
+
+        private void IncreaseChildButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (currentChildren < MaxChildren)
+            {
+                currentChildren++;
+                UpdateGuestCountDisplay();
+            }
+        }
+
+        private void ClosePopupButton_Click(object sender, RoutedEventArgs e)
+        {
+            // Закрываем Popup при нажатии на кнопку "Закрыть"
+            GuestCountPopup.IsOpen = false;
+        }
     }
 }
+
