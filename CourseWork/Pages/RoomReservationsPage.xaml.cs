@@ -20,7 +20,12 @@ namespace CourseWork.Pages
     /// </summary>
     public partial class RoomReservationsPage : Page
     {
-        // Минимальные и максимальные количества взрослых и детей
+        // Дата въезда и выезда
+        public DateTime Today { get; set; }
+        public DateTime? SelectedStartDate { get; set; }
+        public DateTime? SelectedEndDate { get; set; }
+
+        // Минимальные и максимальные количество взрослых и детей
         private const int MinAdults = 1;
         private const int MaxAdults = 6;
         private const int MinChildren = 0;
@@ -42,7 +47,13 @@ namespace CourseWork.Pages
             currentAdults = MinAdults;
             currentChildren = MinChildren;
             UpdateGuestCountDisplay();
+
+            Today = DateTime.Today;
+            DataContext = this;
+            BookingDatePicker.DisplayDateStart = Today;
+            EndDatePicker.DisplayDateStart = Today;
         }
+
         private void AddUserControlToGrid()
         {
             BookingRoomUserControl userControl = new BookingRoomUserControl(); // Создаем экземпляр UserControl
@@ -106,8 +117,11 @@ namespace CourseWork.Pages
 
         private void FilterHiddenButton_Click(object sender, RoutedEventArgs e)
         {
-            if (filterGrid.Visibility == Visibility.Visible) 
+            if (filterGrid.Visibility == Visibility.Visible)
+            {
                 filterGrid.Visibility = Visibility.Collapsed;
+                GuestCountPopup.IsOpen = false;
+            } 
             else
                 filterGrid.Visibility = Visibility.Visible;
         }
@@ -134,7 +148,24 @@ namespace CourseWork.Pages
 
         }
 
-        //Popup
+        // Выбор даты окончания бронирования
+        private void BookingDatePicker_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (BookingDatePicker.SelectedDate.HasValue)
+            {
+                // Обновляем минимальную допустимую дату для EndDatePicker
+                EndDatePicker.DisplayDateStart = BookingDatePicker.SelectedDate.Value.AddDays(1);
+
+                // Если выбранная дата окончания раньше новой даты начала, сбрасываем её
+                if (SelectedEndDate <= BookingDatePicker.SelectedDate)
+                {
+                    SelectedEndDate = null;
+                    EndDatePicker.SelectedDate = null;
+                }
+            }
+        }
+
+        //Popup для количества гостей
         private void GuestCountTextBox_PreviewMouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
             // Открываем Popup только при нажатии на TextBox
@@ -156,7 +187,7 @@ namespace CourseWork.Pages
             if (currentChildren == 1)
                 GuestCountTextBox.Text += $", {currentChildren} ребенок";
             if (currentChildren > 1)
-                GuestCountTextBox.Text += $", {currentChildren} детей";
+                GuestCountTextBox.Text += $", {currentChildren} ребенка";
             else
                 GuestCountTextBox.Text += $"";
         }

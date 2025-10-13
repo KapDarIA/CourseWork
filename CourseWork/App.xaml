@@ -22,6 +22,9 @@
                 <!-- Стили CheckBox -->
                 <ResourceDictionary Source="/Styles/CheckBoxStyle.xaml"/>
 
+                <!-- Стили DatePicker -->
+                <ResourceDictionary Source="/Styles/DatePickerStyles.xaml"/>
+
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>
