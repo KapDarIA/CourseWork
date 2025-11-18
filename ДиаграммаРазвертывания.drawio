@@ -1,0 +1,49 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36" version="29.0.3">
+  <diagram name="Страница-1" id="l2nk_mR0M27ae2b7FDpN">
+    <mxGraphModel dx="1188" dy="663" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="xn5RYCeq08ec6JFZSq5X-1" value="&amp;lt;&amp;lt;устройство&amp;gt;&amp;gt;&lt;div&gt;Компьютер&lt;/div&gt;" style="verticalAlign=top;align=center;spacingTop=8;spacingLeft=2;spacingRight=12;shape=cube;size=10;direction=south;fontStyle=4;html=1;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="80" y="50" width="210" height="210" as="geometry" />
+        </mxCell>
+        <mxCell id="xn5RYCeq08ec6JFZSq5X-8" value="&amp;lt;&amp;lt;устройство&amp;gt;&amp;gt;&lt;br&gt;Сервер" style="verticalAlign=top;align=center;spacingTop=8;spacingLeft=2;spacingRight=12;shape=cube;size=10;direction=south;fontStyle=4;html=1;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="390" y="50" width="420" height="210" as="geometry" />
+        </mxCell>
+        <mxCell id="xn5RYCeq08ec6JFZSq5X-10" value="&amp;lt;&amp;lt;среда выполнения&amp;gt;&amp;gt;&lt;br&gt;docker" style="verticalAlign=top;align=center;spacingTop=8;spacingLeft=2;spacingRight=12;shape=cube;size=10;direction=south;fontStyle=4;html=1;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="410" y="120" width="175" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="xn5RYCeq08ec6JFZSq5X-12" value="&amp;lt;&amp;lt;среда выполнения&amp;gt;&amp;gt;&lt;br&gt;docker" style="verticalAlign=top;align=center;spacingTop=8;spacingLeft=2;spacingRight=12;shape=cube;size=10;direction=south;fontStyle=4;html=1;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="610" y="120" width="175" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="xn5RYCeq08ec6JFZSq5X-11" value="&amp;lt;&amp;lt;компонент&amp;gt;&amp;gt;&lt;div&gt;База данных&lt;/div&gt;&lt;div&gt;MSSQL&lt;/div&gt;" style="shape=module;align=left;spacingLeft=20;align=center;verticalAlign=middle;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="625" y="170" width="120" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="xn5RYCeq08ec6JFZSq5X-13" value="&amp;lt;&amp;lt;компонент&amp;gt;&amp;gt;&lt;div&gt;Web-API&lt;/div&gt;" style="shape=module;align=left;spacingLeft=20;align=center;verticalAlign=middle;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="430" y="170" width="120" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="xn5RYCeq08ec6JFZSq5X-15" value="&amp;lt;&amp;lt;среда выполнения&amp;gt;&amp;gt;&lt;div&gt;Windows&lt;/div&gt;" style="verticalAlign=top;align=center;spacingTop=8;spacingLeft=2;spacingRight=12;shape=cube;size=10;direction=south;fontStyle=4;html=1;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="100" y="120" width="160" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="xn5RYCeq08ec6JFZSq5X-9" value="&amp;lt;&amp;lt;компонент&amp;gt;&amp;gt;&lt;div&gt;novotel.exe&lt;/div&gt;" style="shape=module;align=left;spacingLeft=20;align=center;verticalAlign=middle;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="110" y="170" width="120" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="xn5RYCeq08ec6JFZSq5X-16" value="" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.082;entryY=0.499;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="xn5RYCeq08ec6JFZSq5X-9" target="xn5RYCeq08ec6JFZSq5X-13">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="370" y="240" as="sourcePoint" />
+            <mxPoint x="420" y="190" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="xn5RYCeq08ec6JFZSq5X-17" value="&amp;lt;&amp;lt;протокол&amp;gt;&amp;gt; HTTP" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="310" y="165" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="xn5RYCeq08ec6JFZSq5X-19" value="" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.087;entryY=0.497;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="xn5RYCeq08ec6JFZSq5X-13" target="xn5RYCeq08ec6JFZSq5X-11">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="610" y="340" as="sourcePoint" />
+            <mxPoint x="750" y="340" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
