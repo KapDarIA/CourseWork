@@ -12,7 +12,7 @@
     <Style x:Key="AzureComboBoxStyle" TargetType="ComboBox">
         <Setter Property="FontSize" Value="16"/>
         <Setter Property="FontFamily" Value="Comic Sans MS"/>
-        <Setter Property="Background" Value="#0c1222"/>
+        <Setter Property="Background" Value="#1a2d4d"/>
         <Setter Property="Foreground" Value="#91a8ba"/>
         <Setter Property="BorderThickness" Value="2"/>
         <Setter Property="BorderBrush" Value="#91a8ba"/>
@@ -21,7 +21,7 @@
         <Setter Property="ItemTemplate">
             <Setter.Value>
                 <DataTemplate>
-                    <TextBlock Text="{Binding}"/>
+                    <TextBlock Text="{Binding}" Foreground="#1a2d4d" Background="#91a8ba"/>
                 </DataTemplate>
             </Setter.Value>
         </Setter>
@@ -32,10 +32,40 @@
     <Style x:Key="BlueComboBoxItemStyle" TargetType="ComboBoxItem">
         <Setter Property="Background" Value="#91a8ba"/>
         <Setter Property="Foreground" Value="#0c1222"/>
-        <Setter Property="Padding" Value="5"/>
         <Setter Property="BorderBrush" Value="#0c1222"/>
-        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="BorderThickness" Value="2"/>
         <Setter Property="Margin" Value="5"/>
+    </Style>
+
+    <Style x:Key="ComboBoxWithBackground" TargetType="ComboBox">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="ComboBox">
+                    <Grid>
+                        <ToggleButton Name="ToggleButton" 
+                                  Background="#91a8ba"
+                                  BorderBrush="{TemplateBinding BorderBrush}"
+                                  BorderThickness="{TemplateBinding BorderThickness}"
+                                  Content="{TemplateBinding SelectionBoxItem}">
+                        </ToggleButton>
+                        <Popup Name="Popup"
+                           Placement="Bottom"
+                           IsOpen="{TemplateBinding IsDropDownOpen}"
+                           AllowsTransparency="True"
+                           Focusable="False"
+                           PopupAnimation="Slide">
+                            <Border Background="#91a8ba" 
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}">
+                                <ScrollViewer>
+                                    <ItemsPresenter />
+                                </ScrollViewer>
+                            </Border>
+                        </Popup>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
     </Style>
 
 </ResourceDictionary>

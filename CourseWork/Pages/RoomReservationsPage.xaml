@@ -14,15 +14,20 @@
             <TextBlock Text="Novotel" Style="{StaticResource BlueTextBlockStyle}" FontSize="22" Padding="5 0" VerticalAlignment="Bottom"/>
 
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                
+
                 <Button x:Name="filterHiddenButton" Click="FilterHiddenButton_Click"
                         Style="{StaticResource DarkBlueAsureButtonStyle}"
                         Width="32" Margin="5">
                     <Image Source="/Icons/filterIcon.png"/>
                 </Button>
 
+                <Button Content="Услуги" Style="{StaticResource BlueAsureButtonStyle}" Margin="5" FontSize="18" Width="200"/>
+                
                 <Button x:Name="userProfileButton"
                         Style="{StaticResource DarkBlueAsureButtonStyle}"
-                        Width="32" Margin="5">
+                        Width="32" Margin="5" 
+                        Click="UserProfileButton_Click">
                     <Image Source="/Icons/userProfileIcon.png"/>
                 </Button>
 
@@ -33,6 +38,11 @@
                 </Button>
             </StackPanel>
         </Grid>
+        <StackPanel Orientation="Horizontal" Background="#0c1222">
+            <Button Content="Добавить номер" Style="{StaticResource DarkBlueAzureButtonStyle}" FontSize="18" Margin="10,5"/>
+            <Button Content="Изменить номер" Style="{StaticResource DarkBlueAzureButtonStyle}" FontSize="18" Margin="10,5"/>
+            <Button Content="Удалить номер" Style="{StaticResource DarkBlueAzureButtonStyle}" FontSize="18" Margin="10,5"/>
+        </StackPanel>
         <Grid x:Name="filterGrid" Background="#1a2d4d">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="80"/>
@@ -153,7 +163,7 @@
             <ComboBox Name="bedsComboBox" Width="190" 
                       Grid.Column="6" Grid.Row="1"
                       SelectionChanged="BedsComboBox_SelectionChanged"
-                      Style="{StaticResource AzureComboBoxStyle}" HorizontalAlignment="Left"/>
+                      Style="{StaticResource ComboBoxWithBackground}" HorizontalAlignment="Left"/>
 
             <!--Доп. услуги-->
             

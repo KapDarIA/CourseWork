@@ -1,0 +1,40 @@
+﻿<Page x:Class="CourseWork.Pages.AuthorizationPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:CourseWork.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="1800"  d:Width="1920"
+      Title="AuthorizationPage">
+
+    <Grid>
+        <Button x:Name="homeNavigationButton" Width="32" Height="32" 
+                HorizontalAlignment="Right" VerticalAlignment="Top" 
+                Style="{StaticResource DarkBlueAsureButtonStyle}"
+                Click="HomeNavigationButton_Click" Margin="5">
+            <Image Source="/Icons/homeIcon.png"/>
+        </Button>
+        <StackPanel Background="#91a8ba" HorizontalAlignment="Center" VerticalAlignment="Center" Width="300">
+            <TextBlock Text="Авторизация" FontSize="28" Style="{StaticResource BlueTextBlockStyle}" HorizontalAlignment="Center"/>
+            
+            <TextBlock Text="Логин" FontSize="18" Style="{StaticResource BlueTextBlockStyle}" Margin="5,0"/>
+            <TextBlock x:Name="hintLoginTextBlock" Style="{StaticResource HintTextBlockStyle}" Visibility="Collapsed"/>
+            <TextBox x:Name="loginTextBox" Style="{StaticResource BlueTextBoxStyle}"/>
+
+            <TextBlock Text="Пароль" FontSize="18" Style="{StaticResource BlueTextBlockStyle}" Margin="5,0"/>
+            <TextBlock x:Name="hintPasswordTextBlock" Style="{StaticResource HintTextBlockStyle}" Visibility="Collapsed"/>
+            <PasswordBox FontSize="18" x:Name="passwordTextBox" Style="{StaticResource BluePasswordBoxStyle}"/>
+            
+            <Button x:Name="authorizationNavigationButton" 
+                    FontSize="18" Content="Войти" 
+                    Style="{StaticResource BlueAsureButtonStyle}" 
+                    Margin="5,5,5,0"
+                    Click="AuthorizationNavigationButton_Click"/>
+            <Button x:Name="registrationNavigationButton" 
+                    Content="Зарегистрироваться" FontSize="14" 
+                    Style="{StaticResource BlueSubButtonStyle}"
+                    Click="RegistrationNavigationButton_Click"/>
+        </StackPanel>
+    </Grid>
+</Page>

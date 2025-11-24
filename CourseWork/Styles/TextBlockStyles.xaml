@@ -1,6 +1,8 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-    <!--       Цвета       --> <!--
+    <!--       Цвета       -->
+    <!--
+    #c69459 - золотой (gold)
     #0c1222 - тёмно-синий (dark blue)
     #1a2d4d - синий (blue)
     #6b7c90 - серо-голубой (dark azure)
@@ -54,6 +56,16 @@
         <Setter Property="Background" Value="{x:Null}"/>
         <Setter Property="Foreground" Value="#d4ced8"/>
         <Setter Property="Margin" Value="5"/>
+        <Setter Property="Width" Value="Auto"/>
+    </Style>
+
+    <!-- Стиль подсказка -->
+    <Style x:Key="HintTextBlockStyle" TargetType="TextBlock">
+        <Setter Property="FontSize" Value="14"/>
+        <Setter Property="FontFamily" Value="Comic Sans MS"/>
+        <Setter Property="Background" Value="{x:Null}"/>
+        <Setter Property="Foreground" Value="#cc232e"/>
+        <Setter Property="Margin" Value="5,0"/>
         <Setter Property="Width" Value="Auto"/>
     </Style>
 

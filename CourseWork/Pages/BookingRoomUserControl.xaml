@@ -5,26 +5,36 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:CourseWork"
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="800">
-    <StackPanel>
-        <StackPanel Orientation="Horizontal">
-        <TextBlock Text="*Фото*" Height="200" Width="200"/>
-            <TextBlock Text="*Фото*" Height="200" Width="200"/>
-            <TextBlock Text="*Фото*" Height="200" Width="200"/>
-            <TextBlock Text="*Фото*" Height="200" Width="200"/>
+             d:DesignHeight="340" d:DesignWidth="800">
+    <StackPanel Background="#91a8ba">
+
+        <StackPanel Background="#1a2d4d" Orientation="Horizontal">
+            <TextBlock Height="200" Width="200">
+                <Image/>
+            </TextBlock>
+            <TextBlock Height="200" Width="200">
+                <Image/>
+            </TextBlock>
+            <TextBlock Height="200" Width="200">
+                <Image/>
+            </TextBlock>
+            <TextBlock Height="200" Width="200">
+                <Image/>
+            </TextBlock>
         </StackPanel>
-        <TextBlock Text="Номер *тип номера* с *тип кровати*"/>
-        <TextBlock Text="описание номера"/>
-        <TextBlock Text="*что включено*"/>
+        
+        <TextBlock Text="Номер *тип номера* с *тип кровати*" FontSize="20" Style="{StaticResource BlueTextBlockStyle}"/>
+        <TextBlock Text="описание номера" Style="{StaticResource BlueTextBlockStyle}" Margin="0"/>
+        <TextBlock Text="*что включено*" Style="{StaticResource BlueTextBlockStyle}" Margin="0"/>
         <Grid>
-            <StackPanel>
-                <TextBlock Text="Питание *(не)включено*"/>
-                <TextBlock Text="бесплатный wi-fi"/>
-                <TextBlock Text="Заезд: хх:хх Выезд: хх:хх"/>
+            <StackPanel  Background="#1a2d4d">
+                <TextBlock Text="Питание *(не)включено*" FontSize="14" Style="{StaticResource AzureTextBlockStyle}" Margin="0"/>
+                <TextBlock Text="бесплатный wi-fi" FontSize="14" Style="{StaticResource AzureTextBlockStyle}" Margin="0"/>
+                <TextBlock Text="Заезд: хх:хх Выезд: хх:хх" FontSize="14" Style="{StaticResource AzureTextBlockStyle}" Margin="0"/>
             </StackPanel>
             <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
-                <TextBlock Text="хх ххх руб." />
-                <Button Content="Забронировать"/>
+                <TextBlock Text="хх ххх руб." Style="{StaticResource AzureTextBlockStyle}" Margin="5,0" VerticalAlignment="Center"/>
+                <Button Content="Забронировать" Style="{StaticResource AsureBlueButtonStyle}" Margin="5"/>
             </StackPanel>
         </Grid>
     </StackPanel>

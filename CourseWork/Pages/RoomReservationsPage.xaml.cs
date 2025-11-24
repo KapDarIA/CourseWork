@@ -233,6 +233,11 @@ namespace CourseWork.Pages
             // Закрываем Popup при нажатии на кнопку "Закрыть"
             GuestCountPopup.IsOpen = false;
         }
+
+        private void UserProfileButton_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new AuthorizationPage());
+        }
     }
 }
 

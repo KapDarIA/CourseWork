@@ -63,4 +63,15 @@
         <Setter Property="BorderBrush" Value="#d4ced8"/>
         <Setter Property="BorderThickness" Value="2"/>
     </Style>
+
+    <!-- Стиль синий(пароль) -->
+    <Style x:Key="BluePasswordBoxStyle" TargetType="PasswordBox">
+        <Setter Property="FontSize" Value="16"/>
+        <Setter Property="FontFamily" Value="Comic Sans MS"/>
+        <Setter Property="Background" Value="{x:Null}"/>
+        <Setter Property="Foreground" Value="#1a2d4d"/>
+        <Setter Property="Margin" Value="5"/>
+        <Setter Property="BorderBrush" Value="#1a2d4d"/>
+        <Setter Property="BorderThickness" Value="2"/>
+    </Style>
 </ResourceDictionary>

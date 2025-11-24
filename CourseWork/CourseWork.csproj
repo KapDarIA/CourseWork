@@ -12,6 +12,7 @@
     <None Remove="Icons\crossAzureIcon.png" />
     <None Remove="Icons\crossGoldIcon.png" />
     <None Remove="Icons\filterIcon.png" />
+    <None Remove="Icons\homeIcon.png" />
     <None Remove="Icons\userProfileIcon.png" />
   </ItemGroup>
 
@@ -22,6 +23,9 @@
   <ItemGroup>
     <Resource Include="Icons\crossAzureIcon.png" />
     <Resource Include="Icons\filterIcon.png" />
+    <Resource Include="Icons\homeIcon.png">
+      <CopyToOutputDirectory></CopyToOutputDirectory>
+    </Resource>
     <Resource Include="Icons\userProfileIcon.png" />
   </ItemGroup>
 
