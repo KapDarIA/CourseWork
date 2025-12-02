@@ -238,6 +238,21 @@ namespace CourseWork.Pages
         {
             NavigationService.Navigate(new AuthorizationPage());
         }
+
+        private void AddRoomButton_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new AddRoomPage());
+        }
+
+        private void UpdateRoomButton_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new UpdateRoomPage());
+        }
+
+        private void DeleteRoomButton_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new DeleteRoomPage());
+        }
     }
 }
 

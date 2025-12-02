@@ -1,0 +1,63 @@
+﻿<Page x:Class="CourseWork.Pages.DeleteRoomPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:CourseWork.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="1800" d:Width="1920"
+      Title="DeleteRoomPage">
+
+    <StackPanel Background="#91a8ba">
+        <Grid Background="#0c1222">
+            <Button x:Name="homeNavigationButton" Width="32" Height="32"
+                   HorizontalAlignment="Right" VerticalAlignment="Top" 
+                   Style="{StaticResource AzureSubButtonStyle}"
+                   Click="HomeNavigationButton_Click"  Margin="5">
+                <Image Source="/Icons/homeIcon.png"/>
+            </Button>
+        </Grid>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <TextBlock Text="Тип номера" Style="{StaticResource BlueTextBlockStyle}" FontSize="18"/>
+            <TextBlock Text="Вместимость" Style="{StaticResource BlueTextBlockStyle}" FontSize="18" Grid.Column="1"/>
+            <TextBlock Text="Цена" Style="{StaticResource BlueTextBlockStyle}" FontSize="18" Grid.Column="2"/>
+            <TextBlock Text="Описание" Style="{StaticResource BlueTextBlockStyle}" FontSize="18" Grid.Column="3"/>
+            <TextBlock Text="Тип кровати" Style="{StaticResource BlueTextBlockStyle}" FontSize="18" Grid.Column="4"/>
+            <TextBlock Text="Питание" Style="{StaticResource BlueTextBlockStyle}" FontSize="18" Grid.Column="5"/>
+            <TextBlock Text="Мини-бар" Style="{StaticResource BlueTextBlockStyle}" FontSize="18" Grid.Column="6"/>
+            <TextBlock Text="Вид на реку" Style="{StaticResource BlueTextBlockStyle}" FontSize="18" Grid.Column="7"/>
+            <TextBlock Text="Детская кровать" Style="{StaticResource BlueTextBlockStyle}" FontSize="18" Grid.Column="8"/>
+            <TextBlock Text="Для инвалидов" Style="{StaticResource BlueTextBlockStyle}" FontSize="18" Grid.Column="9"/>
+
+            <TextBox Grid.Row="1" Style="{StaticResource BlueTextBoxStyle}"/>
+            <TextBox Grid.Row="1" Grid.Column="1" Style="{StaticResource BlueTextBoxStyle}"/>
+            <TextBox Grid.Row="1" Grid.Column="2" Style="{StaticResource BlueTextBoxStyle}"/>
+            <TextBox Grid.Row="1" Grid.Column="3" Style="{StaticResource BlueTextBoxStyle}"/>
+            <TextBox Grid.Row="1"  Grid.Column="4" Style="{StaticResource BlueTextBoxStyle}"/>
+            <TextBox Grid.Row="1"  Grid.Column="5" Style="{StaticResource BlueTextBoxStyle}"/>
+            <TextBox Grid.Row="1"  Grid.Column="6" Style="{StaticResource BlueTextBoxStyle}"/>
+            <TextBox Grid.Row="1"  Grid.Column="7" Style="{StaticResource BlueTextBoxStyle}"/>
+            <TextBox Grid.Row="1"  Grid.Column="8" Style="{StaticResource BlueTextBoxStyle}"/>
+            <TextBox Grid.Row="1"  Grid.Column="9" Style="{StaticResource BlueTextBoxStyle}"/>
+        </Grid>
+        <Button HorizontalAlignment="Right" Content="Удалить" Style="{StaticResource BlueAsureButtonStyle}" FontSize="18" Margin="5"/>
+        <ListBox Background="#1a2d4d"/>
+    </StackPanel>
+</Page>

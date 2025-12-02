@@ -39,9 +39,9 @@
             </StackPanel>
         </Grid>
         <StackPanel Orientation="Horizontal" Background="#0c1222">
-            <Button Content="Добавить номер" Style="{StaticResource DarkBlueAzureButtonStyle}" FontSize="18" Margin="10,5"/>
-            <Button Content="Изменить номер" Style="{StaticResource DarkBlueAzureButtonStyle}" FontSize="18" Margin="10,5"/>
-            <Button Content="Удалить номер" Style="{StaticResource DarkBlueAzureButtonStyle}" FontSize="18" Margin="10,5"/>
+            <Button Content="Добавить номер" Style="{StaticResource DarkBlueAzureButtonStyle}" FontSize="18" Margin="10,5" Click="AddRoomButton_Click"/>
+            <Button Content="Изменить номер" Style="{StaticResource DarkBlueAzureButtonStyle}" FontSize="18" Margin="10,5" Click="UpdateRoomButton_Click"/>
+            <Button Content="Удалить номер" Style="{StaticResource DarkBlueAzureButtonStyle}" FontSize="18" Margin="10,5" Click="DeleteRoomButton_Click"/>
         </StackPanel>
         <Grid x:Name="filterGrid" Background="#1a2d4d">
             <Grid.ColumnDefinitions>
