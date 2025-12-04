@@ -14,7 +14,7 @@
             <TextBlock Text="Novotel" Style="{StaticResource BlueTextBlockStyle}" FontSize="22" Padding="5 0" VerticalAlignment="Bottom"/>
 
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                
+
 
                 <Button x:Name="filterHiddenButton" Click="FilterHiddenButton_Click"
                         Style="{StaticResource DarkBlueAsureButtonStyle}"
@@ -23,7 +23,7 @@
                 </Button>
 
                 <Button Content="Услуги" Style="{StaticResource BlueAsureButtonStyle}" Margin="5" FontSize="18" Width="200"/>
-                
+
                 <Button x:Name="userProfileButton"
                         Style="{StaticResource DarkBlueAsureButtonStyle}"
                         Width="32" Margin="5" 
@@ -60,7 +60,7 @@
             </Grid.RowDefinitions>
 
             <!--Цена-->
-            
+
             <TextBlock Text="Цена, руб" FontSize="18" Style="{StaticResource AzureTextBlockStyle}" Grid.Column="0" Grid.ColumnSpan="2"/>
 
             <TextBox x:Name="placeholderPriceFromTextBox" 
@@ -108,9 +108,9 @@
                         Grid.Column="3" Grid.Row="1" 
                         Style="{StaticResource BlueAsureDatePickerStyle}" CalendarStyle="{StaticResource DateTimeCalendarStyle}"
                         SelectedDate="{Binding SelectedEndDate}"/>
-            
+
             <!--Количество гостей-->
-            
+
             <TextBlock Text="Количество гостей" FontSize="18" Style="{StaticResource AzureTextBlockStyle}" Grid.Column="4"/>
 
             <TextBox Name="GuestCountTextBox" Width="205" Grid.Column="4" Grid.Row="1"
@@ -148,7 +148,7 @@
             </Popup>
 
             <!--Тип номера-->
-            
+
             <TextBlock Text="Тип номера" FontSize="18" Style="{StaticResource AzureTextBlockStyle}" Grid.Column="5"/>
 
             <ComboBox Name="typeRoomsComboBox" Width="190" 
@@ -157,7 +157,7 @@
                       Style="{StaticResource AzureComboBoxStyle}"/>
 
             <!--Тип кровати-->
-            
+
             <TextBlock Text="Кровати" FontSize="18" Style="{StaticResource AzureTextBlockStyle}" Grid.Column="6"/>
 
             <ComboBox Name="bedsComboBox" Width="190" 
@@ -166,11 +166,50 @@
                       Style="{StaticResource ComboBoxWithBackground}" HorizontalAlignment="Left"/>
 
             <!--Доп. услуги-->
-            
+
             <CheckBox Grid.Column="7" Content="Питание включено" Style="{StaticResource AzureCheckBoxStyle}" VerticalAlignment="Center" />
             <CheckBox Grid.Column="7" Grid.Row="1" Content="Для инвалидов" Style="{StaticResource AzureCheckBoxStyle}" VerticalAlignment="Center" />
         </Grid>
-        <Grid Width="1000" x:Name="myGrid">
-        </Grid>
+
+        <TextBlock Text="Номера" FontSize="20" FontWeight="Bold" Margin="0,0,0,12"/>
+        <ScrollViewer VerticalScrollBarVisibility="Auto">
+            <ItemsControl ItemsSource="{Binding Rooms}">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel IsItemsHost="True" Orientation="Horizontal" ItemWidth="600" ItemHeight="Auto"/>
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Border BorderBrush="#DDD" BorderThickness="2" CornerRadius="6" Margin="8" Padding="12" Width="500">
+                            <StackPanel>
+                                
+                                <TextBlock Text="{Binding RoomType.NameType, StringFormat=Номер {0}}" FontWeight="SemiBold" FontSize="14"/>
+                                
+                                <TextBlock Text="{Binding Description}" TextWrapping="Wrap" Margin="0,4,0,8" />
+
+                                <StackPanel Orientation="Horizontal" Margin="0,4,0,4">
+                                    <TextBlock Text="Вместимость: " FontWeight="Bold"/>
+                                    <TextBlock Text="{Binding Capacity}"/>
+                                </StackPanel>
+
+                                <StackPanel Orientation="Horizontal" Margin="0,4,0,8">
+                                    <TextBlock Text="Цена: " FontWeight="Bold"/>
+                                    <TextBlock Text="{Binding Price, StringFormat={}{0:N0} руб.}"/>
+                                </StackPanel>
+
+                                <Button Content="Забронировать"
+                                            HorizontalAlignment="Right"
+                                            Padding="8,4"
+                                            Margin="0,6,0,0"
+                                            Click="BookButton_Click"
+                                            Tag="{Binding RoomId}"/>
+                            </StackPanel>
+                        </Border>
+                        </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </ScrollViewer>
     </StackPanel>
 </Page>

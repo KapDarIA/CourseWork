@@ -1,31 +1,31 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using CourseWork.Models;
+using Microsoft.EntityFrameworkCore;
+using System.Collections.ObjectModel;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace CourseWork.Pages
 {
-    /// <summary>
-    /// Логика взаимодействия для RoomReservationsPage.xaml
-    /// </summary>
     public partial class RoomReservationsPage : Page
     {
+        public ObservableCollection<Room> Rooms { get; } = new ObservableCollection<Room>();
+        private bool isLoading;
+        public bool IsLoading
+        {
+            get => isLoading;
+            set { if (isLoading != value) { isLoading = value; } }
+        }
+
         // Дата въезда и выезда
+
         public DateTime Today { get; set; }
         public DateTime? SelectedStartDate { get; set; }
         public DateTime? SelectedEndDate { get; set; }
 
         // Минимальные и максимальные количество взрослых и детей
+
         private const int MinAdults = 1;
         private const int MaxAdults = 6;
         private const int MinChildren = 0;
@@ -52,12 +52,14 @@ namespace CourseWork.Pages
             DataContext = this;
             BookingDatePicker.DisplayDateStart = Today;
             EndDatePicker.DisplayDateStart = Today;
+
+            DataContext = this;
+            _ = LoadRoomsAsync();
         }
 
         private void AddUserControlToGrid()
         {
-            BookingRoomUserControl userControl = new BookingRoomUserControl(); // Создаем экземпляр UserControl
-            myGrid.Children.Add(userControl); // Добавляем его в контейнер, например, Grid
+
         }
 
         private bool IsNumeric(string text)
@@ -121,7 +123,7 @@ namespace CourseWork.Pages
             {
                 filterGrid.Visibility = Visibility.Collapsed;
                 GuestCountPopup.IsOpen = false;
-            } 
+            }
             else
                 filterGrid.Visibility = Visibility.Visible;
         }
@@ -234,6 +236,8 @@ namespace CourseWork.Pages
             GuestCountPopup.IsOpen = false;
         }
 
+        // Навигация
+
         private void UserProfileButton_Click(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new AuthorizationPage());
@@ -252,6 +256,46 @@ namespace CourseWork.Pages
         private void DeleteRoomButton_Click(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new DeleteRoomPage());
+        }
+
+        // Добавление карточек комнат
+
+        private async Task LoadRoomsAsync()
+        {
+            try
+            {
+                IsLoading = true;
+                using var db = new MyAppContext();
+                var rooms = await db.Rooms
+                                    .AsNoTracking()
+                                    .Include(r => r.RoomType)
+                                    .Include(r => r.Images)
+                                    .ToListAsync();
+                Rooms.Clear();
+                foreach (var r in rooms)
+                    Rooms.Add(r);
+            }
+            catch (System.Exception ex)
+            {
+                MessageBox.Show("Ошибка при загрузке данных: " + ex.Message, "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            finally
+            {
+                IsLoading = false;
+            }
+        }
+
+        private void BookButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (sender is Button btn && btn.Tag is int roomId)
+            {
+                MessageBox.Show($"Забронировать номер {roomId}", "Бронирование", MessageBoxButton.OK, MessageBoxImage.Information);
+                // Здесь можно открыть диалог бронирования / навигацию и т.д.
+            }
+            else if (sender is Button b && b.Tag != null)
+            {
+                MessageBox.Show($"Tag: {b.Tag}");
+            }
         }
     }
 }
