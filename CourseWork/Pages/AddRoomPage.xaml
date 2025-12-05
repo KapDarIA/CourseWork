@@ -21,6 +21,8 @@
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
                 <ColumnDefinition/>
+                <ColumnDefinition Width="80"/>
+                <ColumnDefinition/>
                 <ColumnDefinition/>
                 <ColumnDefinition/>
                 <ColumnDefinition/>
@@ -39,25 +41,148 @@
             <TextBlock Text="Вместимость" Style="{StaticResource BlueTextBlockStyle}" FontSize="18" Grid.Column="1"/>
             <TextBlock Text="Цена" Style="{StaticResource BlueTextBlockStyle}" FontSize="18" Grid.Column="2"/>
             <TextBlock Text="Описание" Style="{StaticResource BlueTextBlockStyle}" FontSize="18" Grid.Column="3"/>
-            <TextBlock Text="Тип кровати" Style="{StaticResource BlueTextBlockStyle}" FontSize="18" Grid.Column="4"/>
-            <TextBlock Text="Питание" Style="{StaticResource BlueTextBlockStyle}" FontSize="18" Grid.Column="5"/>
-            <TextBlock Text="Мини-бар" Style="{StaticResource BlueTextBlockStyle}" FontSize="18" Grid.Column="6"/>
-            <TextBlock Text="Вид на реку" Style="{StaticResource BlueTextBlockStyle}" FontSize="18" Grid.Column="7"/>
-            <TextBlock Text="Детская кровать" Style="{StaticResource BlueTextBlockStyle}" FontSize="18" Grid.Column="8"/>
-            <TextBlock Text="Для инвалидов" Style="{StaticResource BlueTextBlockStyle}" FontSize="18" Grid.Column="9"/>
+            <TextBlock Text="Доступность" Style="{StaticResource BlueTextBlockStyle}" FontSize="18" Grid.Column="4"/>
+            <TextBlock Text="Тип кровати" Style="{StaticResource BlueTextBlockStyle}" FontSize="18" Grid.Column="5"/>
+            <TextBlock Text="Питание" Style="{StaticResource BlueTextBlockStyle}" FontSize="18" Grid.Column="6"/>
+            <TextBlock Text="Мини-бар" Style="{StaticResource BlueTextBlockStyle}" FontSize="18" Grid.Column="7"/>
+            <TextBlock Text="Вид на реку" Style="{StaticResource BlueTextBlockStyle}" FontSize="18" Grid.Column="8"/>
+            <TextBlock Text="Детская кровать" Style="{StaticResource BlueTextBlockStyle}" FontSize="18" Grid.Column="9"/>
+            <TextBlock Text="Для инвалидов" Style="{StaticResource BlueTextBlockStyle}" FontSize="18" Grid.Column="10"/>
+            <TextBlock Text="Изображение" Style="{StaticResource BlueTextBlockStyle}" FontSize="18" Grid.Column="11"/>
 
-            <ComboBox Grid.Row="1"/>
-            <TextBox Grid.Row="1" Grid.Column="1"/>
-            <TextBox Grid.Row="1" Grid.Column="2" Style="{StaticResource BlueTextBoxStyle}"/>
-            <TextBox Grid.Row="1" Grid.Column="3" Style="{StaticResource BlueTextBoxStyle}"/>
-            <ComboBox Grid.Row="1"  Grid.Column="4"/>
-            <ComboBox Grid.Row="1"  Grid.Column="5"/>
-            <ComboBox Grid.Row="1"  Grid.Column="6"/>
-            <ComboBox Grid.Row="1"  Grid.Column="7"/>
-            <ComboBox Grid.Row="1"  Grid.Column="8"/>
-            <ComboBox Grid.Row="1"  Grid.Column="9"/>
+            <ComboBox Grid.Row="1" x:Name="roomTypesComboBox"/>
+            <TextBox Grid.Row="1" x:Name="capacityTextBox" Grid.Column="1" Style="{StaticResource BlueTextBoxStyle}" PreviewTextInput="CapacityTextBox_PreviewTextInput"/>
+            <TextBox Grid.Row="1" x:Name="priceTextBox" Grid.Column="2" Style="{StaticResource BlueTextBoxStyle}"/>
+            <TextBox Grid.Row="1" x:Name="descriptionTextBox" Grid.Column="3" Style="{StaticResource BlueTextBoxStyle}"/>
+            <ComboBox Grid.Row="1" x:Name="isAvailableComboBox" Grid.Column="4">
+                <ComboBoxItem Content="Доступно"/>
+                <ComboBoxItem Content="Не доступно"/>
+            </ComboBox>
+            <ComboBox Grid.Row="1" x:Name="bedTypesComboBox" Grid.Column="5"/>
+            <ComboBox Grid.Row="1" x:Name="foodIncludedComboBox" Grid.Column="6">
+                <ComboBoxItem Content="Доступно"/>
+                <ComboBoxItem Content="Не доступно"/>
+            </ComboBox>
+            <ComboBox Grid.Row="1" x:Name="miniBarIncludedComboBox" Grid.Column="7">
+                <ComboBoxItem Content="Доступно"/>
+                <ComboBoxItem Content="Не доступно"/>
+            </ComboBox>
+            <ComboBox Grid.Row="1" x:Name="riverViewComboBox" Grid.Column="8">
+                <ComboBoxItem Content="Доступно"/>
+                <ComboBoxItem Content="Не доступно"/>
+            </ComboBox>
+            <ComboBox Grid.Row="1" x:Name="babyBedComboBox" Grid.Column="9">
+                <ComboBoxItem Content="Доступно"/>
+                <ComboBoxItem Content="Не доступно"/>
+            </ComboBox>
+            <ComboBox Grid.Row="1" x:Name="forDisabledComboBox" Grid.Column="10">
+                <ComboBoxItem Content="Доступно"/>
+                <ComboBoxItem Content="Не доступно"/>
+            </ComboBox>
+            <TextBox Grid.Row="1" x:Name="imageTextBox" Grid.Column="11" Style="{StaticResource BlueTextBoxStyle}"/>
+
         </Grid>
-        <Button HorizontalAlignment="Right" Content="Добавить" Style="{StaticResource BlueAsureButtonStyle}" FontSize="18" Margin="5"/>
-        <ListBox Background="#1a2d4d"/>
+        <Button HorizontalAlignment="Right" Content="Добавить" Width="130" Style="{StaticResource BlueAsureButtonStyle}" FontSize="18" Margin="5" Click="AddRoomsButton_Click"/>
+        <DataGrid AutoGenerateColumns="False" x:Name="roomsDataGrid">
+            <DataGrid.Columns>
+                <DataGridTemplateColumn Header="Тип номера">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding RoomType.NameType}" 
+                               TextWrapping="Wrap" 
+                               MaxWidth="200"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+                <DataGridTemplateColumn Header="Количество человек">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Capacity}" TextWrapping="Wrap" MaxWidth="200"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+                <DataGridTemplateColumn Header="Цена">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Price}" TextWrapping="Wrap" MaxWidth="200"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+                <DataGridTemplateColumn Header="Описание">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Description}" TextWrapping="Wrap" MaxWidth="1000"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                
+                <DataGridTemplateColumn Header="Доступность">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding IsAvailable}" TextWrapping="Wrap" MaxWidth="200"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                
+                <DataGridTemplateColumn Header="Тип кровати">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding BedType.NameBed}" TextWrapping="Wrap" MaxWidth="200"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                
+                <DataGridTemplateColumn Header="Еда">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding FoodIncluded}" TextWrapping="Wrap" MaxWidth="200"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+                <DataGridTemplateColumn Header="Мини-бар">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding MiniBarIncluded}" TextWrapping="Wrap" MaxWidth="200"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                
+                <DataGridTemplateColumn Header="Вид на реку">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding RiverView}" TextWrapping="Wrap" MaxWidth="200"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                
+                <DataGridTemplateColumn Header="Детская кровать">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding BabyBed}" TextWrapping="Wrap" MaxWidth="200"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                
+                <DataGridTemplateColumn Header="Для инвалидов">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding ForDisabled}" TextWrapping="Wrap" MaxWidth="200"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                
+                <DataGridTemplateColumn Header="Изображение">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Image}" TextWrapping="Wrap" MaxWidth="200"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
     </StackPanel>
 </Page>

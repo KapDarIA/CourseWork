@@ -14,6 +14,18 @@
     <None Remove="Icons\filterIcon.png" />
     <None Remove="Icons\homeIcon.png" />
     <None Remove="Icons\userProfileIcon.png" />
+    <None Remove="Images\default.jpg" />
+    <None Remove="Images\Room001.jpg" />
+    <None Remove="Images\Room002.jpg" />
+    <None Remove="Images\Room003.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
   </ItemGroup>
 
   <ItemGroup>
@@ -27,6 +39,12 @@
       <CopyToOutputDirectory></CopyToOutputDirectory>
     </Resource>
     <Resource Include="Icons\userProfileIcon.png" />
+    <Resource Include="Images\default.jpg" />
+    <Resource Include="Images\Room001.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Room002.jpg" />
+    <Resource Include="Images\Room003.jpg" />
   </ItemGroup>
 
 </Project>
